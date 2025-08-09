@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
+      --primary-extra-color: #1db954;
+      --danger-extra-color: #ff6b6b;
       --primary-color: #0a66c2;
       --primary-hover-color: #004182;
       --danger-color: #e53e3e;
@@ -33,7 +35,7 @@
       color: var(--text-dark);
     }
 
-    .container {
+    .container, .login-container, .change-password-container {
       max-width: 800px;
       width: 100%;
       background-color: var(--background-white);
@@ -44,7 +46,7 @@
       transition: var(--transition-all);
     }
 
-    .container:hover {
+    .container:hover, .login-container:hover, .change-password-container:hover {
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     }
 
@@ -67,7 +69,8 @@
     }
 
     input[type="text"],
-    input[type="number"] {
+    input[type="number"],
+    input[type="password"] {
       width: 100%;
       padding: 14px 18px;
       border: 1px solid var(--border-light);
@@ -80,7 +83,8 @@
     }
 
     input[type="text"]:focus,
-    input[type="number"]:focus {
+    input[type="number"]:focus,
+    input[type="password"]:focus {
       outline: none;
       border-color: var(--primary-color);
       box-shadow: 0 0 0 4px rgba(10, 102, 194, 0.3);
@@ -200,14 +204,47 @@
       flex: 1;
     }
 
-    .setor-select-group .remove-setor-button {
-      flex-shrink: 0;
-      padding: 12px 18px;
-      font-size: 0.95rem;
+    .setor-select-group .remove-setor-
+    /* Botões estilo Central de Pedidos */
+    button {
+      background: var(--primary-color);
+      color: white;
+      padding: 14px 30px;
+      border: none;
       border-radius: 12px;
-      position: static;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease-in-out;
       box-shadow: var(--shadow-light);
     }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(270deg, var(--primary-color), var(--primary-hover-color), var(--primary-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    .remove-button {
+      background: var(--danger-color);
+    }
+
+    .remove-button:hover {
+      background: linear-gradient(270deg, var(--danger-color), var(--danger-hover-color), var(--danger-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
 
     .item {
       margin-top: 20px;
@@ -254,14 +291,47 @@
       margin-top: 0;
     }
 
-    .item .remove-item-button {
-      flex-shrink: 0;
-      padding: 12px 18px;
-      font-size: 0.95rem;
+    .item .remove-item-
+    /* Botões estilo Central de Pedidos */
+    button {
+      background: var(--primary-color);
+      color: white;
+      padding: 14px 30px;
+      border: none;
       border-radius: 12px;
-      align-self: flex-end;
-      margin-left: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease-in-out;
+      box-shadow: var(--shadow-light);
     }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(270deg, var(--primary-color), var(--primary-hover-color), var(--primary-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    .remove-button {
+      background: var(--danger-color);
+    }
+
+    .remove-button:hover {
+      background: linear-gradient(270deg, var(--danger-color), var(--danger-hover-color), var(--danger-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
 
     .Justificativa-group {
       margin-top: 20px;
@@ -284,7 +354,7 @@
       box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     }
 
-    .Justificativa::placeholder {
+    .Justificativa:placeholder {
       color: #aaa;
     }
 
@@ -296,8 +366,10 @@
       gap: 20px;
     }
 
+    
+    /* Botões estilo Central de Pedidos */
     button {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+      background: var(--primary-color);
       color: white;
       padding: 14px 30px;
       border: none;
@@ -305,18 +377,78 @@
       cursor: pointer;
       font-size: 1rem;
       font-weight: 600;
-      transition: var(--transition-all);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease-in-out;
       box-shadow: var(--shadow-light);
     }
 
     button:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(270deg, var(--primary-color), var(--primary-hover-color), var(--primary-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
     }
 
     .remove-button {
-      background: linear-gradient(135deg, var(--danger-color), var(--danger-hover-color));
+      background: var(--danger-color);
     }
+
+    .remove-button:hover {
+      background: linear-gradient(270deg, var(--danger-color), var(--danger-hover-color), var(--danger-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+
+    .remove-
+    /* Botões estilo Central de Pedidos */
+    button {
+      background: var(--primary-color);
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease-in-out;
+      box-shadow: var(--shadow-light);
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(270deg, var(--primary-color), var(--primary-hover-color), var(--primary-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    .remove-button {
+      background: var(--danger-color);
+    }
+
+    .remove-button:hover {
+      background: linear-gradient(270deg, var(--danger-color), var(--danger-hover-color), var(--danger-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
 
     .remove-button:hover {
       background: linear-gradient(135deg, var(--danger-hover-color), var(--danger-color));
@@ -340,8 +472,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .hidden {
+      display: none;
+    }
+
     @media (max-width: 768px) {
-      .container {
+      .container, .login-container, .change-password-container {
         margin: 20px;
         padding: 30px;
       }
@@ -353,10 +489,47 @@
         flex-direction: column;
         align-items: stretch;
       }
-      .setor-select-group .remove-setor-button {
-        margin-top: 10px;
-        width: auto;
-      }
+      .setor-select-group .remove-setor-
+    /* Botões estilo Central de Pedidos */
+    button {
+      background: var(--primary-color);
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease-in-out;
+      box-shadow: var(--shadow-light);
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(270deg, var(--primary-color), var(--primary-hover-color), var(--primary-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    .remove-button {
+      background: var(--danger-color);
+    }
+
+    .remove-button:hover {
+      background: linear-gradient(270deg, var(--danger-color), var(--danger-hover-color), var(--danger-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
       .item {
         flex-direction: column;
         align-items: stretch;
@@ -365,30 +538,54 @@
         min-width: unset;
         max-width: 100%;
       }
-      .item .remove-item-button {
-        margin-left: 0;
-        margin-top: 10px;
-        width: auto;
-        align-self: flex-start;
-      }
+      .item .remove-item-
+    /* Botões estilo Central de Pedidos */
+    button {
+      background: var(--primary-color);
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease-in-out;
+      box-shadow: var(--shadow-light);
     }
 
-    footer {
-      position: fixed;
-      bottom: 8px;
-      right: 12px;
-      font-size: 9px;
-      color: #888888;
-      background-color: transparent;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      opacity: 0.75;
-      user-select: none;
-      text-shadow: 0 0 1px rgba(0,0,0,0.1);
-      letter-spacing: 0.02em;
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(270deg, var(--primary-color), var(--primary-hover-color), var(--primary-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    .remove-button {
+      background: var(--danger-color);
+    }
+
+    .remove-button:hover {
+      background: linear-gradient(270deg, var(--danger-color), var(--danger-hover-color), var(--danger-extra-color));
+      background-size: 600% 600%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     }
   </style>
 </head>
 <body oncontextmenu="return false;">
+    </form>
+  </div>
+
   <div class="container" id="mainContainer">
     <h2>Solicitação de Pedido Extra</h2>
     <form id="pedidoForm">
@@ -406,11 +603,19 @@
 
   <datalist id="lista-itens"></datalist>
 
-  <footer>
-    © 2025 Todos os direitos reservados.
-  </footer>
-
   <script>
+    // Initialize users from localStorage or use default
+    let users = JSON.parse(localStorage.getItem('users')) || [
+      { username: "sms6786", password: "Master1@" },
+      { username: "admin", password: "master@" }
+    ];
+    // Ensure all usernames are lowercase
+    users = users.map(user => ({
+      username: user.username.toLowerCase(),
+      password: user.password
+    }));
+    localStorage.setItem('users', JSON.stringify(users));
+
     // Item lists
     const farmaciaItems = [
     "1 01 06 0001 7 Aciclovir 200mg comprimido",
@@ -664,7 +869,7 @@
     "1 01 16 0025 8 Tioridazina, cloridrato 100 mg comprimido"
   ];
 
-    const EnfermagemItems = [
+    const enfermagemItems = [
     "1 02 12 0001 5 Abaixador de lingua de madeira (Pacote c/ 100 unidades)",
     "1 02 03 0001 6 Ácido graxo essencial (Age )",
     "1 02 09 0001 3 Adaptador plástico para coleta de sangue - padrão",
@@ -1722,7 +1927,7 @@ const EscritórioItems = [
       } else if (sectorValue === 'Psicotrópico') {
         items = PsicotópicoItems;
       } else if (sectorValue === 'Enfermagem') {
-        items = EnfermagemItems;
+        items = enfermagemItems;
       } else if (sectorValue === 'Enfermagem_Urgência_e_Emergência') {
         items = Enfermagem_Urgência_e_EmergênciaItems;
       } else if (sectorValue === 'Enfermagem_Teste_DST') {
@@ -1742,7 +1947,7 @@ const EscritórioItems = [
       } else if (sectorValue === 'Epi_Consumo') {
         items = Epi_ConsumoItems;
       } else {
-        items = [];
+        items = defaultItems;
       }
       items.forEach(item => {
         const option = document.createElement('option');
@@ -1751,7 +1956,6 @@ const EscritórioItems = [
       });
     }
 
-    // Prevent right-click and certain keyboard shortcuts
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
       return false;
@@ -1761,10 +1965,6 @@ const EscritórioItems = [
       if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || (e.ctrlKey && e.keyCode === 85)) {
         e.preventDefault();
         return false;
-      }
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
-        e.preventDefault();
-        alert("Salvar página está desativado.");
       }
     });
 
@@ -1856,7 +2056,7 @@ const EscritórioItems = [
         const sectorValue = firstSetor.querySelector('input[name="setor"]').value.trim();
         updateDatalist(setorId, sectorValue);
       } else {
-        updateDatalist('setor-0', '');
+        updateDatalist('setor-0', ''); // Clear datalist if no sectors remain
       }
     }
 
@@ -1865,7 +2065,6 @@ const EscritórioItems = [
       const setor = container.closest('.setor');
       const nomeSetor = setor.querySelector('input[name="setor"]').value.trim();
       if (!nomeSetor) {
-        return;
       }
       const itensExistentes = Array.from(container.querySelectorAll('.item-nome')).map(input => input.value.trim());
       const div = document.createElement('div');
@@ -1937,7 +2136,7 @@ const EscritórioItems = [
           } else if (nomeSetor === 'Psicotrópico') {
             validItems = PsicotópicoItems;
           } else if (nomeSetor === 'Enfermagem') {
-            validItems = EnfermagemItems;
+            validItems = enfermagemItems;
           } else if (nomeSetor === 'Enfermagem_Urgência_e_Emergência') {
             validItems = Enfermagem_Urgência_e_EmergênciaItems;
           } else if (nomeSetor === 'Enfermagem_Teste_DST') {
@@ -1996,5 +2195,39 @@ const EscritórioItems = [
       updateDatalist('setor-0', '');
     };
   </script>
+
+<script>
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+      e.preventDefault();
+      alert("Salvar página está desativado.");
+    }
+  });
+</script>
 </body>
 </html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rodapé Profissional Pequeno</title>
+  <style>
+    footer {
+      position: fixed;
+      bottom: 8px;
+      right: 12px;
+      font-size: 9px;            /* fonte menor */
+      color: #888888;
+      background-color: transparent;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      opacity: 0.75;
+      user-select: none;
+      text-shadow: 0 0 1px rgba(0,0,0,0.1);
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+
+  <footer>
+    © 2025.Todos os direitos reservados.
+  </footer>
